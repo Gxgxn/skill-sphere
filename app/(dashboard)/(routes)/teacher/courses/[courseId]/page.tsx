@@ -1,13 +1,14 @@
 import { IconBadge } from "@/components/IconBadge";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
-import { LayoutDashboard } from "lucide-react";
+import { CircleDollarSign, LayoutDashboard, ListChecks } from "lucide-react";
 import { redirect } from "next/navigation";
 import { TitleForm } from "./_components/TitleForm";
 import { DescriptionForm } from "./_components/DescriptionForm";
 import { ImageForm } from "./_components/ImageForm";
 import { Combobox } from "@/components/ui/combobox";
 import { CategoryForm } from "./_components/CategoryForm";
+import { PriceForm } from "./_components/PriceForm";
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -52,7 +53,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         <div>
           <div className="flex items-center gap-x-2">
             <IconBadge icon={LayoutDashboard} />
-            <h2 className="text-xl">Complete The Course Setup</h2>
+            <h2 className="text-xl">Customize Your Course</h2>
           </div>
           <TitleForm initialData={course} courseId={course.id} />
           <DescriptionForm initialData={course} courseId={course.id} />
@@ -65,6 +66,23 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
               value: category.id,
             }))}
           />
+        </div>
+        <div className="space-y-6">
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={ListChecks} />
+              <h2 className="text-xl">Course Chapters</h2>
+            </div>
+            <div>TODO: Chapters</div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-x-2">
+              <IconBadge icon={CircleDollarSign} />
+              <h2 className="text-xl">Sell Your Course</h2>
+            </div>
+            <PriceForm initialData={course} courseId={course.id} />
+          </div>
         </div>
       </div>
     </div>
