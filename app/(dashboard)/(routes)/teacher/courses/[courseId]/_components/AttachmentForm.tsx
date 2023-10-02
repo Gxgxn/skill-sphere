@@ -8,11 +8,11 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Divide, PlusCircle, File, Loader2, X } from "lucide-react";
 import { useState } from "react";
-import { Attachments, Course } from "@prisma/client";
+import { Attachment, Course } from "@prisma/client";
 import { FileUpload } from "@/components/FileUpload";
 
 interface AttachmentFormProps {
-  initialData: Course & { attachments: Attachments[] };
+  initialData: Course & { attachments: Attachment[] };
   courseId: string;
 }
 
