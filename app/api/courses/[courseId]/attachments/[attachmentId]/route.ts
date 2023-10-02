@@ -23,7 +23,7 @@ export async function DELETE(
     if (!courseOwner) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-    const attachment = await db.attachments.delete({
+    const attachment = await db.attachment.delete({
       where: {
         courseId: params.courseId,
         id: attachmentId,
