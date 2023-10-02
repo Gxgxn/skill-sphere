@@ -8,8 +8,8 @@ interface CourseProgressProps {
   size?: "default" | "sm";
 }
 const colorByVariant = {
-  default: "text-sm",
-  sm: "text-xs",
+  default: "text-sky-700",
+  success: "text-emerald-700",
 };
 const sizeByVariant = {
   default: "text-sm",
@@ -23,7 +23,7 @@ const CourseProgress = ({ value, variant, size }: CourseProgressProps) => {
         className={cn(
           "font-medium mt-2 text-sky-700",
           colorByVariant[variant || "default"],
-          sizeByVariant[variant || "default"]
+          sizeByVariant[size || "default"]
         )}
       >
         {Math.round(value)}% Complete
